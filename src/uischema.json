@@ -3,23 +3,29 @@
   "elements": [
     {
       "type": "Control",
-      "label": "Completed",
-      "scope": "#/properties/done"
+      "scope": "#/properties/name",
+      "label":"First name"
+    },
+    {
+        "type": "Control",
+        "label":"Birth Date",
+        "scope":"#/properties/birthDate"
     },
     {
       "type": "Control",
-      "scope": "#/properties/name"
+      "label":"Sex",
+      "scope":"#/properties/Sex"
     },
     {
       "type": "HorizontalLayout",
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/due_date"
+          "scope": "#/properties/State"
         },
         {
           "type": "Control",
-          "scope": "#/properties/rating"
+          "scope": "#/properties/nationality"
         }
       ]
     },
@@ -28,28 +34,26 @@
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/recurrence"
+          "scope": "#/properties/age"
         },
         {
           "type": "Control",
-          "scope": "#/properties/recurrence_interval",
-          "rule": {
-            "effect": "HIDE",
-            "condition": {
-              "type": "LEAF",
-              "scope": "#/properties/recurrence",
-              "expectedValue": "Never"
-            }
-          }
+          "scope": "#/properties/height"
         }
       ]
     },
     {
-      "type": "Control",
-      "scope": "#/properties/description",
-      "options": {
-        "multi": true
-      }
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/occupation"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/Postalcode"
+        }
+      ]
     }
   ]
 }

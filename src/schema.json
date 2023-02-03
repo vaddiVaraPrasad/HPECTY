@@ -3,30 +3,69 @@
   "properties": {
     "name": {
       "type": "string",
-      "minLength": 1
+      "minLength": 3,
+      "description": "Please enter your name"
     },
-    "description": {
-      "title": "Long Description",
-      "type": "string"
+
+    "Sex":{
+      "type":"string",
+      "enum":[
+        "Male","Female"
+      ]
     },
-    "done": {
-      "type": "boolean"
+
+    "State":{
+      "type":"string",
+      "enum": [
+        "KA",
+        "MH",
+        "UP",
+        "DH",
+        "TN",
+        "Other"
+
+      ]
     },
-    "due_date": {
+
+    "birthDate": {
       "type": "string",
       "format": "date"
     },
-    "rating": {
-      "type": "integer",
-      "maximum": 5
-    },
-    "recurrence": {
+
+    "nationality": {
       "type": "string",
-      "enum": ["Never", "Daily", "Weekly", "Monthly"]
+      "enum": [
+        "IND",
+        "ENG",
+        "AUS",
+        "US",
+        "RU",
+        "Other"
+      ]
     },
-    "recurrence_interval": {
-      "type": "integer"
+    "age": {
+      "type": "integer",
+      "description": "Please enter your age.",
+      "minimum":0,
+      "maximum":100
+    },
+    "height": {
+      "description": "Please enter your height in cm",
+      "type": "number",
+      "minimum":0,
+      "maximum":300
+    },
+    "occupation":{
+      "type":"string",
+      "description": "Please enter your occupation."
+    },
+    "Postalcode":{
+      "type":"string"
     }
   },
-  "required": ["name", "due_date"]
+  "required": [
+    "name",
+    "birthDate",
+    "occupation"
+  ]
 }
