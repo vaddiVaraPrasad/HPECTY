@@ -1,71 +1,162 @@
 {
+  "title":"Services",
   "type": "object",
   "properties": {
-    "name": {
+    "Name": {
       "type": "string",
       "minLength": 3,
-      "description": "Please enter your name"
+      "description": "Please enter the id"
     },
-
-    "Sex":{
-      "type":"string",
-      "enum":[
-        "Male","Female"
+    "Description": {
+      "type": "string"
+    },
+    
+    "Logging-Format": {
+      "type": "object",
+      "properties": {
+        "Order": {
+          "type": "string",
+          "enum": [
+            "asctime","service","req_id","severity","id","message",
+            "Other"]
+        },
+        "Delimeter": {
+          "type": "string",
+          "enum": [
+            "|","/"," ",
+            "Other"]
+        }
+      
+      },
+      "required": [
+        
       ]
     },
 
-    "State":{
-      "type":"string",
-      "enum": [
-        "KA",
-        "MH",
-        "UP",
-        "DH",
-        "TN",
-        "Other"
-
+    "Logger": {
+      "type": "object",
+      "properties": {
+        "Type": {
+          "type": "string"
+        },
+        "Plugin": {
+          "type": "string"
+        },
+        "Plugin-Data":{
+           "type":"object",
+           "properties":
+           {
+            "File-path":{
+              "type":  "string"
+            },
+            "Max-log-size":{
+              "type":  "string"
+            },
+            "Max-log-files":{
+              "type":  "integer"
+            }
+            
+           }
+        }
+      
+      },
+      "required": [
+        
       ]
     },
 
-    "birthDate": {
-      "type": "string",
-      "format": "date"
+
+    "Error-Codes":{
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "string"
+        },
+
+        "log":{
+           "type":"object",
+           "properties":
+           {
+            "Messages":{
+              "type":  "string"
+            },
+            "Severity":{
+              "type":  "string",
+              "enum":["High","Medium","Low"]
+            },
+            "Arguments":{
+              "type":"object",
+              "properties":
+              {
+               "Name":{
+                 "type":  "string"
+               },
+               "Description":{
+                 "type":  "string"
+            
+               }
+               
+               
+               
+              }
+           }
+            
+            
+            
+           }
+        }
+      
+      }    
     },
 
-    "nationality": {
-      "type": "string",
-      "enum": [
-        "IND",
-        "ENG",
-        "AUS",
-        "US",
-        "RU",
-        "Other"
-      ]
-    },
-    "age": {
-      "type": "integer",
-      "description": "Please enter your age.",
-      "minimum":0,
-      "maximum":100
-    },
-    "height": {
-      "description": "Please enter your height in cm",
-      "type": "number",
-      "minimum":0,
-      "maximum":300
-    },
-    "occupation":{
-      "type":"string",
-      "description": "Please enter your occupation."
-    },
-    "Postalcode":{
-      "type":"string"
+
+      "Resolution":{
+        "type": "object",
+        "properties": {
+          "Description": {
+            "type": "string"
+          },
+              "Owner":{
+                "type":  "string"
+              },
+              "SelfHealing":{
+                "type":  "string"
+                
+              }  
+  
+          }
+        
+        },
+
+
+        "References":{
+          "type": "object",
+          "properties": {
+                "link":{
+                  "type":  "string"
+                }
+               
+            }
+          
+          },
+
+        
+
+      "ReturnCodes":{
+        "type": "object",
+        "properties": {
+          "HTTP": {
+            "type": "integer"
+          },
+          "Console":{
+                "type": "integer"
+              }
+              
+          }
+        
+        }
+
     }
-  },
-  "required": [
-    "name",
-    "birthDate",
-    "occupation"
-  ]
-}
+    
+  }
+

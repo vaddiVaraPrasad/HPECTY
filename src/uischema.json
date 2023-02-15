@@ -1,59 +1,64 @@
 {
-  "type": "VerticalLayout",
-  "elements": [
-    {
-      "type": "Control",
-      "scope": "#/properties/name",
-      "label":"First name"
-    },
-    {
-        "type": "Control",
-        "label":"Birth Date",
-        "scope":"#/properties/birthDate"
-    },
-    {
-      "type": "Control",
-      "label":"Sex",
-      "scope":"#/properties/Sex"
-    },
-    {
-      "type": "HorizontalLayout",
+  
+      "type": "VerticalLayout",
       "elements": [
         {
-          "type": "Control",
-          "scope": "#/properties/State"
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Name",
+              "scope": "#/properties/Name"
+            },
+            {
+              "type": "Control",
+              "label": "Description",
+              "scope": "#/properties/Description"
+            }
+          ]
         },
         {
-          "type": "Control",
-          "scope": "#/properties/nationality"
-        }
-      ]
-    },
-    {
-      "type": "HorizontalLayout",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/age"
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Logging-Format"
+            }
+
+          ]
         },
+
         {
-          "type": "Control",
-          "scope": "#/properties/height"
+          "type": "VerticalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/Logger"
+            },
+            {
+              "type":"Control",
+              "scope":"#/properties/Error-Codes"
+            },
+
+            {
+              "type":"Control",
+              "scope":"#/properties/Resolution"
+            },
+            {
+              "type":"Control",
+              "scope":"#/properties/References"
+            },
+
+            {
+              "type":"Control",
+              "scope":"#/properties/ReturnCodes"
+            }
+
+          ]
         }
+
+       
+
       ]
-    },
-    {
-      "type": "HorizontalLayout",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/occupation"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/Postalcode"
-        }
-      ]
-    }
-  ]
-}
+  }
+  
