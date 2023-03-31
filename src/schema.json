@@ -1,3 +1,4 @@
+
 {
   "title":"Services",
   "type": "object",
@@ -8,7 +9,9 @@
       "description": "Please enter the id"
     },
     "Description": {
-      "type": "string"
+      "type": "string",
+      "minLength": 3,
+      "description": "Please enter the description"
     },
     
     "Logging-Format": {
@@ -16,12 +19,14 @@
       "properties": {
         "Order": {
           "type": "string",
+          "description": "Please enter the format",
           "enum": [
             "asctime","service","req_id","severity","id","message",
             "Other"]
         },
         "Delimeter": {
           "type": "string",
+          "description": "Please enter the format",
           "enum": [
             "|","/"," ",
             "Other"]
@@ -33,95 +38,103 @@
       ]
     },
 
-    "Logger": {
-      "type": "object",
-      "properties": {
-        "Type": {
-          "type": "string"
-        },
-        "Plugin": {
-          "type": "string"
-        },
-        "Plugin-Data":{
-           "type":"object",
-           "properties":
-           {
-            "File-path":{
-              "type":  "string"
-            },
-            "Max-log-size":{
-              "type":  "string"
-            },
-            "Max-log-files":{
-              "type":  "integer"
-            }
+    
+        "Logger": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Type": {
+                "type": "string",
+                "description": "Please enter the type"
+              },
+              "Plugin": {
+                "type": "string",
+                "description": "Please enter the valid input"
+              },
+              "Plugin-Data":{
+                 "type":"object",
+                 "properties":
+                 {
+                  "File-path":{
+                    "type":  "string",
+                    "description": "Please enter the valid path"
+                  },
+                  "Max-log-size":{
+                    "type":  "integer",
+                    "description": "Please enter the valid input",
+                    "maximum": 100000000,
+                    "minimum": 1
+                  },
+                  "Max-log-files":{
+                    "type":  "integer",
+                    "description": "Please enter the valid input",
+                    "maximum": 10000000000,
+                    "minimum": 1
+                  }
+                  
+                 }
+              
             
-           }
+         
+          }
         }
-      
-      },
-      "required": [
-        
-      ]
+      }
     },
 
 
-    "Error-Codes":{
-      "type": "object",
-      "properties": {
-        "ID": {
-          "type": "string"
-        },
 
-        "log":{
-           "type":"object",
-           "properties":
-           {
-            "Messages":{
-              "type":  "string"
-            },
-            "Severity":{
-              "type":  "string",
-              "enum":["High","Medium","Low"]
-            },
-            "Arguments":{
-              "type":"object",
-              "properties":
-              {
-               "Name":{
-                 "type":  "string"
-               },
-               "Description":{
-                 "type":  "string"
-            
-               }
-               
-               
-               
-              }
-           }
-            
-            
-            
-           }
-        }
-      
-      }    
-    },
-
-
-      "Resolution":{
+    "Error-Codes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ID": {
+            "type": "string",
+            "description": "Please enter the valid ID"
+          },
+  
+          "log":{
+             "type":"object",
+             "properties":
+             {
+              "Messages":{
+                "type":  "string",
+                "description": "Please enter the valid message"
+              },
+              "Severity":{
+                "type":  "string",
+                "description": "Please enter the valid input",
+                "enum":["High","Medium","Low"]
+              },
+              "Arguments":{
+                "type":"object",
+                "properties":
+                {
+                 "Name":{
+                   "type":  "string",
+                   "description": "Please enter the name"
+  
+                 },
+                 "Description":{
+                   "type":  "string",
+                   "description": "Please enter the description"
+              
+                 },
+                 "Resolution":{
         "type": "object",
         "properties": {
           "Description": {
-            "type": "string"
+            "type": "string",
+            "description": "Please enter the description"
           },
               "Owner":{
-                "type":  "string"
+                "type":  "string",
+                "description": "Please enter the valid input"
               },
               "SelfHealing":{
-                "type":  "string"
-                
+                "type":  "string",
+                "description": "Please enter the valid input"
               }  
   
           }
@@ -133,7 +146,8 @@
           "type": "object",
           "properties": {
                 "link":{
-                  "type":  "string"
+                  "type":  "string",
+                  "description": "Please enter the valid input"
                 }
                
             }
@@ -146,17 +160,39 @@
         "type": "object",
         "properties": {
           "HTTP": {
-            "type": "integer"
+            "type": "string",
+            "description": "Please enter the valid input"
           },
           "Console":{
-                "type": "integer"
+                "type": "integer",
+                "description": "Please enter the valid input",
+                "maximum": 100000000,
+                "minimum": 1
               }
               
-          }
+          },
+          "required": [
+        
+          ]
         
         }
+                 
+                }
+             }
+            }
+           
+          }
+        
+        }  
+      }
+    }
+
+
+        
 
     }
+
+    
     
   }
 
